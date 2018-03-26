@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -492,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointNumber: 0
   totalNumberOfCheckpoints: 0
+  nextCheckpoint: {fileID: 0}
 --- !u!1 &1202237994
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointNumber: 1
   totalNumberOfCheckpoints: 0
+  nextCheckpoint: {fileID: 0}
 --- !u!1 &1511292736
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +857,7 @@ MonoBehaviour:
   checkpoints:
   - {fileID: 1024526128}
   - {fileID: 1478726190}
+  text: {fileID: 1855211220}
 --- !u!1 &1855211218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,6 +1151,7 @@ MonoBehaviour:
   rigidbody: {fileID: 2051045066}
   speed: 13
   lastCheckpointPassed: 0
+  lapManager: {fileID: 1717813633}
 --- !u!1 &2099404140
 GameObject:
   m_ObjectHideFlags: 0

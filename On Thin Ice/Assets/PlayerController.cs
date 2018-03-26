@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	
 	public int lastCheckpointPassed = 0;
 
+    public LapManager lapManager;
 
 	// Update is called once per frame
 	void Update () {
@@ -33,5 +34,6 @@ public class PlayerController : MonoBehaviour {
 
 	public void finishedLap(){
 		Debug.Log("Lap finished!");
+        lapManager.Lap();
 	}
 }
