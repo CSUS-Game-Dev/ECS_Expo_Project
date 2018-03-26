@@ -6,15 +6,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public Rigidbody rigidbody;
-<<<<<<< HEAD
 	public float speed = 13f;
-=======
+
 	public SphereCollider sCol;
 	public GameObject Collider;
 
 	private float maxSpeed = .3f;
 	private float accelMagnitude = .01f;
-	private float speed = 0f;
 
 	private float Forward;
 	private float Turn;
@@ -25,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 	void Start() {
 		rb = GetComponent<Rigidbody> ();
 	}
->>>>>>> Player Controls
+
 	
 	public int lastCheckpointPassed = 0;
 
@@ -33,7 +31,6 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
 		Vector3 vel = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 		vel = vel.normalized * speed;
 		rigidbody.velocity = vel;
@@ -55,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 	public void finishedLap(){
 		Debug.Log("Lap finished!");
         lapManager.Lap();
-=======
+
 		Forward = Input.GetAxis ("Vertical");
 		Turn = Input.GetAxis ("Horizontal");
 		Brake = Input.GetAxis ("Jump");
@@ -70,6 +67,6 @@ public class PlayerController : MonoBehaviour {
 
 		speed = Mathf.Min (maxSpeed, speed);
 		speed = Mathf.Max (0f, speed - .001f);
->>>>>>> Player Controls
+
 	}
 }
