@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour {
 
 	public Rigidbody rigidbody;
-
 	public float speed = 13f;
-
 
 	public SphereCollider sCol;
 	public GameObject Collider;
 
 	private float maxSpeed = .3f;
 	private float accelMagnitude = .01f;
-
 
 	private float Forward;
 	private float Turn;
@@ -29,35 +27,27 @@ public class PlayerController : MonoBehaviour {
 	
 	public int lastCheckpointPassed = 0;
 
+    public LapManager lapManager;
 
-	private Rigidbody rb;
-
-	void Start() {
-		rb = GetComponent<Rigidbody> ();
-	}
-	
 	// Update is called once per frame
 	void Update () {
-		Forward = Input.GetAxis ("Vertical");
-		Turn = Input.GetAxis ("Horizontal");
-		Brake = Input.GetAxis ("Jump");
+		Vector3 vel = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+		vel = vel.normalized * speed;
+		rigidbody.velocity = vel;
+	}
 
+	public void passCheckpoint(Checkpoint checkpoint){
+		Debug.Log(this.name + " passed checkpoint " + checkpoint.checkpointNumber);
 
-		speed = speed + Forward * accelMagnitude; 
-
-		Quaternion q;
-		Vector3 v;
-		transform.Rotate (0, Turn *3, 0);
-
-		Vector3 nmlSpeed = new Vector3(0,0,speed);
-		nmlSpeed.Normalize ();
-		RaycastHit[] hits;
-		hits = Physics.RaycastAll (transform.position, nmlSpeed, speed);
-		if (hits.Length == 0)
-			transform.Translate (0, 0, speed);
-		else {
-			speed = 0;
+		if(lastCheckpointPassed == checkpoint.totalNumberOfCheckpoints - 1 && checkpoint.checkpointNumber == 0){
+			lastCheckpointPassed = 0;
+			finishedLap();
 		}
+		else if(lastCheckpointPassed == checkpoint.checkpointNumber - 1){
+			lastCheckpointPassed++;
+		}
+
+	}
 
 	public void finishedLap(){
 		Debug.Log("Lap finished!");
