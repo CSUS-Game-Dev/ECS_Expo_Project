@@ -53,20 +53,5 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log("Lap finished!");
         lapManager.Lap();
 
-		Forward = Input.GetAxis ("Vertical");
-		Turn = Input.GetAxis ("Horizontal");
-		Brake = Input.GetAxis ("Jump");
-
-
-		speed = speed + Forward * accelMagnitude; 
-
-		Quaternion q;
-		Vector3 v;
-		transform.Translate (0, 0, speed);
-		transform.Rotate (0, Turn * 6, 0);
-
-		speed = Mathf.Min (maxSpeed, speed);
-		speed = Mathf.Max (0f, speed - .001f);
-
 	}
 }
