@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public SphereCollider sCol;
 	public GameObject Collider;
 
-	private float maxSpeed = .3f;
+	private float maxSpeed = .22f;
 	private float accelMagnitude = .004f;
 	private float friction = .001f;
 
