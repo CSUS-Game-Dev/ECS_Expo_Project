@@ -33,8 +33,17 @@ public class PlayerController : MonoBehaviour {
 
 		Quaternion q;
 		Vector3 v;
-		transform.Translate (0, 0, speed);
-		transform.Rotate (0, Turn * 6, 0);
+		transform.Rotate (0, Turn *3, 0);
+
+		Vector3 nmlSpeed = new Vector3(0,0,speed);
+		nmlSpeed.Normalize ();
+		RaycastHit[] hits;
+		hits = Physics.RaycastAll (transform.position, nmlSpeed, speed);
+		if (hits.Length == 0)
+			transform.Translate (0, 0, speed);
+		else {
+			speed = 0;
+		}
 
 		speed = Mathf.Min (maxSpeed, speed);
 		speed = Mathf.Max (0f, speed - .001f);
