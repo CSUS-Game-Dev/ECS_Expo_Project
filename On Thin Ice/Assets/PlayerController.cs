@@ -21,8 +21,11 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
 
+    private int lapCount;
+
 	void Start() {
 		rb = GetComponent<Rigidbody> ();
+        lapCount = 1;
 	}
 
 	
@@ -66,7 +69,12 @@ public class PlayerController : MonoBehaviour {
 
 	public void finishedLap(){
 		Debug.Log("Lap finished!");
-        lapManager.Lap();
+        lapManager.Lap(lapCount);
+        lapCount++;
+        if(lapCount == 4)
+        {
+            lapManager.PlayerFinished(gameObject);
+        }
 
 	}
 }
