@@ -9,15 +9,16 @@ public class LapManager : MonoBehaviour {
 	public List<Checkpoint> checkpoints = new List<Checkpoint>();
     public Text text;
     private int lapCount, place;
-    private bool pass2, pass3;
-    public GameObject playerManager;
+    private bool pass2, pass3, raceFinished;
+    public GameObject playerManager, EndInfoPrefab;
+    public RectTransform UserInterface;
     public TimeScript time;
-    private ArrayList playerInfo = new ArrayList();
+   private ArrayList playerInfo = new ArrayList();
 
     // Use this for initialization
     void Start () {
         lapCount = 1; place = 1;
-        pass2 = false; pass3 = false;
+        pass2 = false; pass3 = false; raceFinished = false;
 		for(int i = 0; i < checkpoints.Count; i++){
 			checkpoints[i].totalNumberOfCheckpoints = numberOfCheckpoints;
 		}
@@ -64,10 +65,19 @@ public class LapManager : MonoBehaviour {
     {
         if(playerManager.transform.childCount == 0)
         {
-            for(int i = 0; i < playerInfo.Count; i++)
+            if(raceFinished == false)
             {
-                Debug.Log(playerInfo[i].ToString());
+                raceFinished = true;
+                GameObject temp = Instantiate(EndInfoPrefab);
+                temp.transform.SetParent(UserInterface, false);
+                EndInfo info = temp.GetComponent<EndInfo>();
+                for(int i = 0; i < playerInfo.Count; i++)
+                {
+                    Debug.Log(playerInfo[i].ToString());
+                    info.setNextLine(playerInfo[i].ToString());
+                }
             }
+            
         }
     }
 }

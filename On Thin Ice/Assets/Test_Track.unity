@@ -1182,6 +1182,9 @@ MonoBehaviour:
   - {fileID: 1478726190}
   text: {fileID: 1855211220}
   playerManager: {fileID: 588857884}
+  EndInfoPrefab: {fileID: 1924027304340324, guid: ec65ee57f8d9c934fb7cbb91e363f7d2,
+    type: 2}
+  UserInterface: {fileID: 1511292740}
   time: {fileID: 1286164677}
 --- !u!1 &1855211218
 GameObject:

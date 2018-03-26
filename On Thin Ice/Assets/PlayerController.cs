@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
 
-    public int lapCount;
+    private int lapCount;
 
 	void Start() {
 		rb = GetComponent<Rigidbody> ();
