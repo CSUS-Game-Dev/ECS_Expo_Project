@@ -325,12 +325,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MinusAction.cs" />
+    <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\PlusAction.cs" />
     <Compile Include="Assets\QuitAction.cs" />
     <Compile Include="Assets\Scipts\Track\Checkpoint.cs" />
     <Compile Include="Assets\Scipts\Track\EndInfo.cs" />
     <Compile Include="Assets\Scipts\Track\LapManager.cs" />
-    <Compile Include="Assets\Scipts\Track\PlayerController.cs" />
     <Compile Include="Assets\Scipts\Track\TimeScript.cs" />
     <Compile Include="Assets\StartAction.cs" />
   </ItemGroup>
