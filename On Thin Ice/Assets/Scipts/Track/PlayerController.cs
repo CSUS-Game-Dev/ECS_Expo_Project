@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
 		transform.LookAt(transform.position - direction);
 
 		rigidbody.AddForce(transform.rotation * new Vector3(-1f, 0f, 0f) * acceleration * Time.deltaTime);
-		if(rigidbody.velocity.magnitude > speed){rigidbody.velocity = direction.normalized * speed; Debug.Log("Reached max speed");}
+		if(rigidbody.velocity.magnitude > speed){rigidbody.velocity = transform.rotation * new Vector3(-1f, 0f, 0f) * speed;}
 
 	}
 
