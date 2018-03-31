@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114887438723002402}
   m_Layer: 0
   m_Name: Snowman
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822647647159052}
-  m_Mesh: {fileID: 4300000, guid: db46d4db64a2d3945936a172299e91b6, type: 3}
+  m_Mesh: {fileID: 4300000, guid: afd41225503b74e4e9e0b1eda73a3985, type: 3}
 --- !u!33 &33719549383315996
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -319,11 +319,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc74347aa4d456d46820496bc8deb165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: -1
   rigidbody: {fileID: 54233450634038246}
-  speed: 13
-  accelleration: 1000
-  sCol: {fileID: 0}
+  speed: 18
+  accelleration: 1500
   Collider: {fileID: 1690725115851096}
+  bottomBall: {fileID: 23247240580779970}
+  currentLap: 1
   lastCheckpointPassed: 0
   lapManager: {fileID: 0}
 --- !u!136 &136529842277392818

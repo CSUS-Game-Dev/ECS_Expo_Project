@@ -9,6 +9,10 @@ public class LapManager : MonoBehaviour {
 	public List<Checkpoint> checkpoints = new List<Checkpoint>();
     public Text text;
     private int lapCount, place;
+
+    private int totalLaps = 3;
+    private int currentLapCount = 0;
+
     private bool pass2, pass3, raceFinished;
     public GameObject playerManager, EndInfoPrefab;
     public RectTransform UserInterface;
@@ -23,7 +27,7 @@ public class LapManager : MonoBehaviour {
 			checkpoints[i].totalNumberOfCheckpoints = numberOfCheckpoints;
 		}
     }
-
+/* 
     public void Lap(int l)
     {
         if(l == lapCount)
@@ -52,15 +56,35 @@ public class LapManager : MonoBehaviour {
             }
         }
     }
+*/
+
+    public void Lap(int num, PlayerController pc){
+        if(num > currentLapCount){
+            currentLapCount = num;
+            if(num < 3){
+                text.text = "Lap " + (num + 1) + " / 3";  
+            }   
+        }
+        if(num == totalLaps){
+            PlayerFinished(pc.gameObject);
+        }
+    }
 
     public void PlayerFinished(GameObject obj)
     {
-        string objInfo = place + ": " + obj.name + ", " + time.getTime();
+        PlayerController pc = obj.GetComponent<PlayerController>();
+        string objInfo = "Player " + pc.playerNumber + " wins!\n Finished in " + time.getTime() + " seconds";
+
         place++;
-        playerInfo.Add(objInfo);
+        //playerInfo.Add(objInfo);
         Destroy(obj);
+        if(place > playerManager.GetComponent<PlayerManager>().playerNumber){
+            EndInfoPrefab.active = true;
+            EndInfoPrefab.GetComponentInChildren<Text>().text = objInfo;
+        }
     }
 
+/* 
     private void Update()
     {
         if(playerManager.transform.childCount == 0)
@@ -80,4 +104,5 @@ public class LapManager : MonoBehaviour {
             
         }
     }
+*/
 }
