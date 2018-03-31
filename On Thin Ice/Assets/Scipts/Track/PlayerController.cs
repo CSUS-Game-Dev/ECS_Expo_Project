@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public Rigidbody rigidbody;
-	public float speed = 0;
+	public float speed = 13;
+	public float acceleration = 1000f;
 
 	public SphereCollider sCol;
 	public GameObject Collider;
@@ -36,24 +37,22 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Forward = Input.GetAxis ("Vertical") * accelMagnitude;
-		Turn = Input.GetAxis ("Horizontal") * 3;
+		Vector3 direction = new Vector3(-Input.GetAxis("Vertical"), 0f, Input.GetAxis("Horizontal"));
 
-		speed = Mathf.Min (maxSpeed, speed + Forward);
-		speed = Mathf.Max (0, speed - friction);
+		transform.LookAt(transform.position - direction);
 
-
-		transform.Translate (0, 0, speed);
-		transform.Rotate (0, Turn, 0);
+		rigidbody.AddForce(transform.rotation * new Vector3(-1f, 0f, 0f) * acceleration * Time.deltaTime);
+		if(rigidbody.velocity.magnitude > speed){rigidbody.velocity = direction.normalized * speed; Debug.Log("Reached max speed");}
 
 	}
 
+/* 
 	void OnTriggerEnter(Collider other) {
 		if(other.CompareTag("Wall")) {
 			speed = 0;
 		}
 	}
-
+*/
 	public void passCheckpoint(Checkpoint checkpoint){
 		Debug.Log(this.name + " passed checkpoint " + checkpoint.checkpointNumber);
 
