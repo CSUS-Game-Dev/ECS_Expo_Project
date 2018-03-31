@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	public int playerNumber = -1;
+
 	public Rigidbody rigidbody;
 	public float speed = 13f;
 	public float accelleration = 10f;
-	public SphereCollider sCol;
 	public GameObject Collider;
 
-	private float maxSpeed = .3f;
+	public MeshRenderer bottomBall;
+
 	private float accelMagnitude = .01f;
 
 	private float Forward;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Start() {
 		rb = GetComponent<Rigidbody> ();
+		bottomBall = transform.FindChild("BottomBall").GetComponent<MeshRenderer>();
 	}
 
 	
@@ -43,6 +46,35 @@ public class PlayerController : MonoBehaviour {
 		if(rigidbody.velocity.magnitude > speed){ rigidbody.velocity = rigidbody.velocity.normalized * speed;}
 
 		//rigidbody.velocity = transform.rotation * new Vector3(-1f, 0f, 0f) * speed ;
+	}
+
+	public void setPlayer(int playerNumber){
+
+		Material ballMaterial;
+
+		string materialPath = "WhiteMat";
+
+		switch(playerNumber){
+			case 1:
+				materialPath = "WhiteMat";
+				break;
+			case 2:
+				materialPath = "GreenMat";
+				break;
+			case 3:
+				materialPath = "YellowMat";
+				break;
+			case 4:
+				materialPath = "BlackMat";
+				break;
+			default:
+				break;
+		}
+
+		ballMaterial = Resources.Load(materialPath) as Material;
+
+		bottomBall.material = ballMaterial;
+
 	}
 
 	public void passCheckpoint(Checkpoint checkpoint){
