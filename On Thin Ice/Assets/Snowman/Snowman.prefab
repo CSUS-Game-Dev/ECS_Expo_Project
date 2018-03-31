@@ -68,9 +68,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4655519331788816}
-  - component: {fileID: 114987466005717790}
   - component: {fileID: 54233450634038246}
   - component: {fileID: 136529842277392818}
+  - component: {fileID: 114887438723002402}
   m_Layer: 0
   m_Name: Snowman
   m_TagString: Untagged
@@ -174,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1690725115851096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.173, z: -19.13}
+  m_LocalPosition: {x: 0, y: 0.42, z: -19.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4977533995619590}
@@ -291,7 +291,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!111 &111322340759587218
 Animation:
@@ -301,14 +301,14 @@ Animation:
   m_GameObject: {fileID: 1822647647159052}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: a0f41bf3483253348ae312d94a5f2f3c, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: a0f41bf3483253348ae312d94a5f2f3c, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &114987466005717790
+--- !u!114 &114887438723002402
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -316,13 +316,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1690725115851096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34e08e01228c4dc1b49c44193bb50af, type: 3}
+  m_Script: {fileID: 11500000, guid: bc74347aa4d456d46820496bc8deb165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 54233450634038246}
   speed: 13
+  accelleration: 1000
   sCol: {fileID: 0}
-  Collider: {fileID: 0}
+  Collider: {fileID: 1690725115851096}
   lastCheckpointPassed: 0
   lapManager: {fileID: 0}
 --- !u!136 &136529842277392818
@@ -3759,7 +3760,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1323596310
+  randomSeed: -184672514
   InitialModule:
     serializedVersion: 3
     enabled: 1
