@@ -722,6 +722,24 @@ GameObject:
   m_PrefabParentObject: {fileID: 1690725115851096, guid: 87812aeeba8249e40a584255a8e0db1d,
     type: 2}
   m_PrefabInternal: {fileID: 2002354389}
+--- !u!114 &1079586968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1079586967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc74347aa4d456d46820496bc8deb165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 2002354391}
+  speed: 13
+  accelleration: 1000
+  sCol: {fileID: 0}
+  Collider: {fileID: 1079586967}
+  lastCheckpointPassed: 0
+  lapManager: {fileID: 0}
 --- !u!1 &1202237994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,9 +1178,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1717813631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d925a8db82649abab60d776b907850, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e7bbea5c24d16c44a2e41d0dfa99d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfCheckpoints: 2
+  checkpoints: []
+  text: {fileID: 0}
+  playerManager: {fileID: 0}
+  EndInfoPrefab: {fileID: 0}
+  UserInterface: {fileID: 0}
+  time: {fileID: 0}
 --- !u!1 &1855211218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,12 +1351,18 @@ Prefab:
       propertyPath: Collider
       value: 
       objectReference: {fileID: 1079586967}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114987466005717790, guid: 87812aeeba8249e40a584255a8e0db1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 87812aeeba8249e40a584255a8e0db1d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2002354390 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4655519331788816, guid: 87812aeeba8249e40a584255a8e0db1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 2002354389}
+--- !u!54 &2002354391 stripped
+Rigidbody:
+  m_PrefabParentObject: {fileID: 54233450634038246, guid: 87812aeeba8249e40a584255a8e0db1d,
     type: 2}
   m_PrefabInternal: {fileID: 2002354389}
 --- !u!1 &2009270498
